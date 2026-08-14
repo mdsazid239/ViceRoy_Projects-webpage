@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../services/api";
+import { Link } from "react-router-dom";
 function Footer() {
   const [formData, setFormData] = useState({
     name: "",
@@ -116,10 +117,8 @@ function Footer() {
       <section className="bg-[#006b60] px-4 py-12 sm:px-6 sm:py-16 lg:px-10 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12 lg:gap-20">
-
             {/* ================= LEFT CONTENT ================= */}
             <div className="text-center text-white md:text-left">
-
               <h2 className="text-3xl font-serif font-semibold tracking-wide sm:text-4xl lg:text-5xl">
                 DISCOVER VICEROY VISĀVA
               </h2>
@@ -129,8 +128,8 @@ function Footer() {
               </p>
 
               <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8 md:mx-0">
-                Explore 3 & 4 BHK luxury residences designed around
-                space, privacy and calm.
+                Explore 3 & 4 BHK luxury residences designed around space,
+                privacy and calm.
               </p>
 
               {/* PHONE */}
@@ -159,9 +158,7 @@ function Footer() {
 
               {/* SOCIAL */}
               <div className="mt-9">
-                <p className="text-lg sm:text-xl">
-                  Follow us
-                </p>
+                <p className="text-lg sm:text-xl">Follow us</p>
 
                 <div className="mt-4 flex justify-center gap-4 md:justify-start">
                   <a
@@ -186,15 +183,11 @@ function Footer() {
             {/* ================= RIGHT FORM ================= */}
             <div className="w-full">
               <div className="mx-auto w-full max-w-xl rounded-md bg-white p-6 shadow-xl sm:p-8 lg:p-10">
-
                 <h2 className="text-center text-3xl font-bold text-[#77783e] sm:text-4xl">
                   Contact With Us!
                 </h2>
 
-                <form
-                  onSubmit={handleSubmit}
-                  className="mt-7 space-y-4"
-                >
+                <form onSubmit={handleSubmit} className="mt-7 space-y-4">
                   {/* NAME */}
                   <input
                     type="text"
@@ -254,7 +247,6 @@ function Footer() {
                 </form>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -264,48 +256,34 @@ function Footer() {
       ====================================================== */}
       <section className="bg-white px-4 py-6 sm:px-6 sm:py-8">
         <div className="mx-auto max-w-7xl text-center">
-
           {/* LINKS */}
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-[#006b60] sm:text-base">
-            <a
-              href="#disclaimer"
-              className="transition hover:underline"
-            >
+            <a href="#disclaimer" className="transition hover:underline">
               Disclaimer
             </a>
 
             <span>|</span>
 
-            <a
-              href="#terms"
-              className="transition hover:underline"
-            >
+            <a href="terms" className="transition hover:underline">
               Terms & Conditions
             </a>
-
             <span>|</span>
 
-            <a
-              href="#maharera"
-              className="transition hover:underline"
-            >
+            <a href="#maharera" className="transition hover:underline">
               MahaRERA
             </a>
 
             <span>|</span>
 
-            <a
-              href="#privacy"
-              className="transition hover:underline"
-            >
+            <a href="#privacy" className="transition hover:underline">
               Privacy Policy
             </a>
           </div>
 
           {/* COPYRIGHT */}
           <p className="mt-3 text-sm text-[#006b60] sm:text-base">
-            © {new Date().getFullYear()} Viceroy Properties.
-            All Rights Reserved.
+            © {new Date().getFullYear()} Viceroy Properties. All Rights
+            Reserved.
           </p>
         </div>
       </section>
