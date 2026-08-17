@@ -12,43 +12,43 @@ const amenities = [
     id: 1,
     image: contrac,
     title: "Premium Residences",
-    description: `Heated Swimming Pool & Jacuzzi
-Unwind in serene waters above the city.`,
+    description:
+      "Only 83 exclusive residences\ncreating a private, like-minded community.",
   },
   {
     id: 2,
     image: convex,
     title: "Grand Entrance",
-    description: `Terrace Pavilion
-Pause, connect and enjoy the open sky.`,
+    description:
+      "First habitable floor at ≈110 ft\noffering elevated privacy and quieter living.",
   },
   {
     id: 3,
     image: boiler,
     title: "Landscape & Gardens",
-    description: `Yoga Room & Meditation Deck
-Find calm through mindful movement.`,
+    description:
+      "8 ft. deep private decks\nthat extend your home into the outdoors across all residences.",
   },
   {
     id: 4,
     image: smicond,
     title: "Lifestyle Amenities",
-    description: `Fitness & Pilates Centre
-Stay active in a focused setting.`,
+    description:
+      "Generous ceiling heights of ≈10.3 ft.\nenhancing light, space, and openness.",
   },
   {
     id: 5,
     image: loyla,
     title: "Contemporary Interiors",
-    description: `Garden Lawn & Walking Track
-Move at your own pace outdoors.`,
+    description:
+      "French windows across all residences\ndesigned to maximise views and natural light.",
   },
   {
     id: 6,
     image: margft,
     title: "Exclusive Living",
-    description: `Children’s Play Garden
-A thoughtful space to play and explore.`,
+    description:
+      "Generous carpet areas\noffering more usable living space.",
   },
 ];
 
@@ -61,7 +61,6 @@ function Overview() {
       className="viceroy-amenities-section bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-10 lg:py-20"
     >
       <div className="viceroy-amenities-container mx-auto max-w-7xl">
-
         {/* ================= HEADING ================= */}
         <div className="viceroy-amenities-heading mb-8 text-center sm:mb-10 lg:mb-12">
           <h2 className="viceroy-amenities-title text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">

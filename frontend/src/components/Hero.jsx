@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../services/api";
+import ContactForm from "./ContactForm";
 import banner from "../assets/images/MastHead.png";
-
 function Hero() {
   const [formData, setFormData] = useState({
     name: "",
@@ -353,165 +353,165 @@ function Hero() {
    CONTACT FORM
 ========================================= */
 
-function ContactForm({
-  formData,
-  loading,
-  message,
-  error,
-  handleChange,
-  handleMobileChange,
-  handleSubmit,
-}) {
-  return (
-    <div
-      className="
-        w-full
-        max-w-md
-        border
-        border-gray-200
-        bg-white
-        p-6
-        shadow-2xl
-        sm:p-8
-        lg:max-w-[390px]
-      "
-    >
+// function ContactForm({
+//   formData,
+//   loading,
+//   message,
+//   error,
+//   handleChange,
+//   handleMobileChange,
+//   handleSubmit,
+// }) {
+//   return (
+//     <div
+//       className="
+//         w-full
+//         max-w-md
+//         border
+//         border-gray-200
+//         bg-white
+//         p-6
+//         shadow-2xl
+//         sm:p-8
+//         lg:max-w-[390px]
+//       "
+//     >
 
-      {/* Heading */}
-      <h2
-        className="
-          mb-6
-          text-center
-          text-3xl
-          font-bold
-          text-[#77773f]
-          sm:text-4xl
-        "
-      >
-        Contact With Us!
-      </h2>
+//       {/* Heading */}
+//       <h2
+//         className="
+//           mb-6
+//           text-center
+//           text-3xl
+//           font-bold
+//           text-[#77773f]
+//           sm:text-4xl
+//         "
+//       >
+//         Contact With Us!
+//       </h2>
 
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4"
-      >
+//       <form
+//         onSubmit={handleSubmit}
+//         className="space-y-4"
+//       >
 
-        {/* Name */}
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Enter Name"
-          required
-          className="
-            h-14
-            w-full
-            rounded-md
-            border
-            border-gray-200
-            bg-white
-            px-4
-            text-base
-            text-gray-700
-            outline-none
-            placeholder:text-gray-500
-            focus:border-[#77773f]
-            focus:ring-1
-            focus:ring-[#77773f]
-          "
-        />
+//         {/* Name */}
+//         <input
+//           type="text"
+//           name="name"
+//           value={formData.name}
+//           onChange={handleChange}
+//           placeholder="Enter Name"
+//           required
+//           className="
+//             h-14
+//             w-full
+//             rounded-md
+//             border
+//             border-gray-200
+//             bg-white
+//             px-4
+//             text-base
+//             text-gray-700
+//             outline-none
+//             placeholder:text-gray-500
+//             focus:border-[#77773f]
+//             focus:ring-1
+//             focus:ring-[#77773f]
+//           "
+//         />
 
-        {/* Mobile */}
-        <input
-          type="tel"
-          name="mobile"
-          value={formData.mobile}
-          onChange={handleMobileChange}
-          placeholder="Mobile Number"
-          maxLength={10}
-          required
-          className="
-            h-14
-            w-full
-            rounded-md
-            border
-            border-gray-200
-            bg-white
-            px-4
-            text-base
-            text-gray-700
-            outline-none
-            placeholder:text-gray-500
-            focus:border-[#77773f]
-            focus:ring-1
-            focus:ring-[#77773f]
-          "
-        />
+//         {/* Mobile */}
+//         <input
+//           type="tel"
+//           name="mobile"
+//           value={formData.mobile}
+//           onChange={handleMobileChange}
+//           placeholder="Mobile Number"
+//           maxLength={10}
+//           required
+//           className="
+//             h-14
+//             w-full
+//             rounded-md
+//             border
+//             border-gray-200
+//             bg-white
+//             px-4
+//             text-base
+//             text-gray-700
+//             outline-none
+//             placeholder:text-gray-500
+//             focus:border-[#77773f]
+//             focus:ring-1
+//             focus:ring-[#77773f]
+//           "
+//         />
 
-        {/* Email */}
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Enter Email"
-          required
-          className="
-            h-14
-            w-full
-            rounded-md
-            border
-            border-gray-200
-            bg-white
-            px-4
-            text-base
-            text-gray-700
-            outline-none
-            placeholder:text-gray-500
-            focus:border-[#77773f]
-            focus:ring-1
-            focus:ring-[#77773f]
-          "
-        />
+//         {/* Email */}
+//         <input
+//           type="email"
+//           name="email"
+//           value={formData.email}
+//           onChange={handleChange}
+//           placeholder="Enter Email"
+//           required
+//           className="
+//             h-14
+//             w-full
+//             rounded-md
+//             border
+//             border-gray-200
+//             bg-white
+//             px-4
+//             text-base
+//             text-gray-700
+//             outline-none
+//             placeholder:text-gray-500
+//             focus:border-[#77773f]
+//             focus:ring-1
+//             focus:ring-[#77773f]
+//           "
+//         />
 
-        {/* Submit */}
-        <button
-          type="submit"
-          disabled={loading}
-          className="
-            h-14
-            w-full
-            bg-[#77773f]
-            text-lg
-            font-medium
-            text-white
-            transition
-            hover:bg-[#666633]
-            disabled:cursor-not-allowed
-            disabled:opacity-60
-          "
-        >
-          {loading ? "Submitting..." : "Submit"}
-        </button>
+//         {/* Submit */}
+//         <button
+//           type="submit"
+//           disabled={loading}
+//           className="
+//             h-14
+//             w-full
+//             bg-[#77773f]
+//             text-lg
+//             font-medium
+//             text-white
+//             transition
+//             hover:bg-[#666633]
+//             disabled:cursor-not-allowed
+//             disabled:opacity-60
+//           "
+//         >
+//           {loading ? "Submitting..." : "Submit"}
+//         </button>
 
-        {/* Success */}
-        {message && (
-          <p className="text-center text-sm font-medium text-green-600">
-            {message}
-          </p>
-        )}
+//         {/* Success */}
+//         {message && (
+//           <p className="text-center text-sm font-medium text-green-600">
+//             {message}
+//           </p>
+//         )}
 
-        {/* Error */}
-        {error && (
-          <p className="text-center text-sm font-medium text-red-600">
-            {error}
-          </p>
-        )}
+//         {/* Error */}
+//         {error && (
+//           <p className="text-center text-sm font-medium text-red-600">
+//             {error}
+//           </p>
+//         )}
 
-      </form>
-    </div>
-  );
-}
+//       </form>
+//     </div>
+//   );
+// }
 
 export default Hero;

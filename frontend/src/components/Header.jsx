@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/images/VP-VV-Logo LockUp.png";
+import logo from "../assets/images/VP-VV-Logo-LockUp.png";
 
 const navItems = [
   { label: "Home", target: "home" },
