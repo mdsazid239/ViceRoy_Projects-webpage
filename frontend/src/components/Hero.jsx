@@ -268,46 +268,7 @@ function Hero() {
       {/* =========================================
           MOBILE PROPERTY INFORMATION
       ========================================== */}
-      <div className="bg-[#77773f] px-5 py-6 lg:hidden">
-
-        <div className="space-y-5">
-
-          {/* Location */}
-          <div className="border-b border-white/20 pb-4">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">
-              Location
-            </p>
-
-            <p className="mt-1.5 text-sm font-medium text-white">
-              Versova, Mumbai
-            </p>
-          </div>
-
-          {/* Property */}
-          <div className="border-b border-white/20 pb-4">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">
-              Property
-            </p>
-
-            <p className="mt-1.5 text-sm font-medium text-white">
-              Premium Residences
-            </p>
-          </div>
-
-          {/* Experience */}
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">
-              Experience
-            </p>
-
-            <p className="mt-1.5 text-sm font-medium text-white">
-              Luxury Living
-            </p>
-          </div>
-
-        </div>
-      </div>
-
+    
     </section>
   );
 }

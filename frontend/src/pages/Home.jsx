@@ -19,6 +19,19 @@ function Home() {
         <section id="about" className="scroll-mt-20 bg-[#ffffff]">
           <Expectations />
         </section>
+        {/* <section
+          id="project"
+          className="scroll-mt-20 bg-[#ffffff]"
+        >
+          <ResidenceConfiguration />
+        </section> */}
+
+        <section
+  id="project"
+  className="scroll-mt-20 bg-[#ffffff] pt-16"
+>
+  <ResidenceConfiguration />
+</section>
 
         <section id="gallery" className="scroll-mt-20 bg-[#ffffff]">
           <Gallery />
@@ -26,12 +39,12 @@ function Home() {
         <section className="scroll-mt-20 bg-[#ffffff]">
           <Overview />
         </section>
-        <section
+        {/* <section
           id="project"
           className="scroll-mt-20 bg-[#ffffff]"
         >
           <ResidenceConfiguration />
-        </section>
+        </section> */}
         {/* <section
           id="ResidenceConfiguration"
           className="scroll-mt-20 bg-[#ffffff]"
