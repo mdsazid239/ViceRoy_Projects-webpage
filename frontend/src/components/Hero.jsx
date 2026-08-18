@@ -61,16 +61,14 @@ function Hero() {
           email: "",
         });
       } else {
-        setError(
-          response.data.message || "Something went wrong."
-        );
+        setError(response.data.message || "Something went wrong.");
       }
     } catch (err) {
       console.error("Submit Error:", err);
 
       setError(
         err.response?.data?.message ||
-          "Unable to submit enquiry. Please try again."
+          "Unable to submit enquiry. Please try again.",
       );
     } finally {
       setLoading(false);
@@ -89,12 +87,10 @@ function Hero() {
 
   return (
     <section id="home" className="w-full bg-white">
-
       {/* =========================================
           HERO IMAGE
       ========================================== */}
       <div className="w-full mt-[70px]">
-
         {/* MOBILE */}
         <div className="block w-full lg:hidden">
           <img
@@ -111,7 +107,6 @@ function Hero() {
 
         {/* DESKTOP */}
         <div className="relative hidden min-h-screen lg:block">
-
           <img
             src={banner}
             alt="Viceroy Visava"
@@ -165,7 +160,6 @@ function Hero() {
                 px-10
               "
             >
-
               {/* Location */}
               <div className="border-r border-white/20 py-5 pr-6">
                 <p className="text-xs uppercase tracking-[0.2em] text-white/60">
@@ -198,7 +192,6 @@ function Hero() {
                   Luxury Living
                 </p>
               </div>
-
             </div>
           </div>
         </div>
@@ -207,38 +200,53 @@ function Hero() {
       {/* =========================================
           MOBILE CTA BAR
       ========================================== */}
-      <div className="block w-full bg-white px-3 py-3 lg:hidden">
-
-        <div
-          className="
-            flex
-            mx-auto
-             md:w-[40%]
-            overflow-hidden
-            rounded-full
-            bg-[#77773f]
-          "
-        >
-
-          {/* Enquire Now */}
-          <button
-            type="button"
-            onClick={scrollToContact}
-            className="
-              flex-1
-              py-4
-              text-center
-              text-sm
-              font-bold
-              text-white
-              sm:text-base
-            "
-          >
-            Enquire Now
-          </button>
-        </div>
-      </div>
-
+{/* =========================================
+    MOBILE CTA BAR - FIXED BOTTOM
+========================================== */}
+<div
+  className="
+    fixed
+    bottom-0
+    left-0
+    right-0
+    z-[9999]
+    block
+    w-full
+    bg-white
+    px-3
+    pt-3
+    pb-[calc(12px+env(safe-area-inset-bottom))]
+    shadow-[0_-4px_15px_rgba(0,0,0,0.08)]
+    lg:hidden
+  "
+>
+  <div className="mx-auto w-full md:w-[40%]">
+    <button
+      type="button"
+      onClick={scrollToContact}
+      className="
+        flex
+        w-full
+        items-center
+        justify-center
+        rounded-full
+        bg-[#77773f]
+        py-4
+        text-center
+        text-sm
+        font-bold
+        text-white
+        transition
+        duration-200
+        hover:bg-[#666633]
+        active:scale-[0.98]
+        sm:text-base
+      "
+    >
+      Enquire Now
+    </button>
+  </div>
+</div>
       {/* =========================================
           MOBILE CONTACT FORM
       ========================================== */}
@@ -268,7 +276,6 @@ function Hero() {
       {/* =========================================
           MOBILE PROPERTY INFORMATION
       ========================================== */}
-    
     </section>
   );
 }
