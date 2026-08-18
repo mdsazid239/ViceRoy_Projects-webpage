@@ -1,12 +1,10 @@
 import { useState } from "react";
-
 import contrac from "../assets/images/A-IMG-1.png";
 import convex from "../assets/images/A-IMG-2.png";
 import boiler from "../assets/images/A-IMG-3.png";
 import smicond from "../assets/images/A-IMG-4.png";
 import loyla from "../assets/images/A-IMG-5.png";
 import margft from "../assets/images/A-IMG-6.png";
-
 const amenities = [
   {
     id: 1,
@@ -63,7 +61,7 @@ function Overview() {
       <div className="viceroy-amenities-container mx-auto max-w-7xl">
         {/* ================= HEADING ================= */}
         <div className="viceroy-amenities-heading mb-8 text-center sm:mb-10 lg:mb-12">
-          <h2 className="viceroy-amenities-title text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
+          <h2 className="viceroy-amenities-title text-3xl leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
             AMENITIES
           </h2>
         </div>

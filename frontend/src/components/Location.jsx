@@ -1,6 +1,9 @@
 import { useState } from "react";
-import versovaImg1 from "../assets/images/Versova-Img-1.png";
-import versovaImg2 from "../assets/images/Versova-Img-2.png";
+
+import versovaImg1 from "../assets/images/Versova-Img-1.webp";
+import versovaImg2 from "../assets/images/Versova-Img-2.webp";
+import versovaImg3 from "../assets/images/Versova-Img-3.webp";
+
 const slides = [
   {
     id: 1,
@@ -9,6 +12,10 @@ const slides = [
   {
     id: 2,
     image: versovaImg2,
+  },
+  {
+    id: 3,
+    image: versovaImg3,
   },
 ];
 
@@ -49,14 +56,13 @@ function Location() {
   return (
     <section
       id="location"
-      className="bg-[] px-4 py-14 sm:px-6 sm:py-16 lg:px-10 lg:py-24"
+      className="px-4 py-14 sm:px-6 sm:py-16 lg:px-10 lg:py-24"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 lg:gap-16">
 
-        {/* LEFT - IMAGE SLIDER */}
+        {/* IMAGE SLIDER */}
         <div className="relative overflow-hidden rounded-sm">
-          {/* Image */}
-          <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-200">
+          <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-200">
             <img
               src={slides[currentSlide].image}
               alt={`Versova location map ${currentSlide + 1}`}
@@ -102,19 +108,16 @@ function Location() {
           </div>
         </div>
 
-        {/* RIGHT - CONTENT */}
+        {/* LOCATION CONTENT */}
         <div>
-          {/* Small Heading */}
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#b18a4a] sm:text-sm">
             Location
           </span>
 
-          {/* Main Heading */}
           <h2 className="mt-3 text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
             On a Land of Calm
           </h2>
 
-          {/* Description */}
           <div className="mt-6 space-y-4 text-sm leading-7 text-gray-600 sm:text-base sm:leading-8">
             <p>
               Along Mumbai’s western coastline lies Versova, where the
@@ -128,13 +131,12 @@ function Location() {
             </p>
           </div>
 
-          {/* Connectivity */}
+          {/* CONNECTIVITY */}
           <div className="mt-10">
             <h3 className="text-2xl font-semibold text-gray-900 sm:text-3xl">
               Connected to everything that matters
             </h3>
 
-            {/* Distance Grid */}
             <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               {distances.map((item) => (
                 <div
@@ -153,12 +155,10 @@ function Location() {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
 }
 
-export default Location; 
-
-
-
+export default Location;

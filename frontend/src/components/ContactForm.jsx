@@ -27,7 +27,7 @@ function ContactForm({
       */}
 
       <h2 className="mb-6 text-2xl font-bold">
-        Enquire Now
+        Book an appointment
       </h2>
 
       <form onSubmit={handleSubmit}>

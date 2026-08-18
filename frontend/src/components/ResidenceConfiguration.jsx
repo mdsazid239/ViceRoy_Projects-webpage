@@ -158,14 +158,14 @@ function ResidenceConfiguration() {
 
               {/* ================= CTA ================= */}
               <div className="mt-8">
-                <button
+                {/* <button
                   type="button"
                   onClick={handleDownloadBrochure}
                   disabled={loading}
                   className="inline-flex min-h-[52px] items-center justify-center border border-[#202020] px-7 py-3 text-xs uppercase tracking-[0.16em] text-[#202020] transition-all duration-300 hover:bg-[#202020] hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:px-9"
                 >
                   {loading ? "Downloading..." : "Download brochure"}
-                </button>
+                </button> */}
               </div>
             </div>
 
