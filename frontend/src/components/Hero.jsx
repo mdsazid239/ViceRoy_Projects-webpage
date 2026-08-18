@@ -93,7 +93,7 @@ function Hero() {
       {/* =========================================
           HERO IMAGE
       ========================================== */}
-      <div className="w-full">
+      <div className="w-full mt-[70px]">
 
         {/* MOBILE */}
         <div className="block w-full lg:hidden">
@@ -212,7 +212,8 @@ function Hero() {
         <div
           className="
             flex
-            w-full
+            mx-auto
+             md:w-[40%]
             overflow-hidden
             rounded-full
             bg-[#77773f]
@@ -235,45 +236,6 @@ function Hero() {
           >
             Enquire Now
           </button>
-
-          {/* Tap To Call */}
-          <a
-            href="tel:+919999999999"
-            className="
-              flex-1
-              border-l
-              border-white/20
-              py-4
-              text-center
-              text-sm
-              font-bold
-              text-white
-              sm:text-base
-            "
-          >
-            Tap To Call
-          </a>
-
-          {/* WhatsApp */}
-          <a
-            href="https://wa.me/919999999999"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              flex-1
-              border-l
-              border-white/20
-              py-4
-              text-center
-              text-sm
-              font-bold
-              text-white
-              sm:text-base
-            "
-          >
-            Whats App
-          </a>
-
         </div>
       </div>
 
@@ -283,6 +245,7 @@ function Hero() {
       <div
         id="mobile-contact"
         className="
+          
           scroll-mt-20
           bg-white
           px-4

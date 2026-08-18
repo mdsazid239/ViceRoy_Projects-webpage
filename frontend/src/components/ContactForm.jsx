@@ -13,7 +13,7 @@ function ContactForm({
   onClose,
 }) {
   return (
-    <div className="relative w-full max-w-md bg-white p-6 shadow-2xl">
+    <div className="relative mx-auto w-full max-w-md bg-white p-6 shadow-2xl">
 
       {/* Close Button */}
       {/* 

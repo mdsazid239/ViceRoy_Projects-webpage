@@ -155,7 +155,8 @@ function Gallery() {
               <br />
             </span>
             <span className="condensed">
-              An oasis designed to welcome you back,
+              An oasis des
+              igned to welcome you back,
               <br className="hidden sm:block" />
               not just home, but into calm.
             </span>

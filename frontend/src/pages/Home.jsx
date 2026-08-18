@@ -5,6 +5,7 @@ import Gallery from "../components/Gallery";
 import Location from "../components/Location";
 import Footer from "../components/Footer";
 import ResidenceConfiguration from "../components/ResidenceConfiguration";
+import Expectations from "../components/Expectations";
 function Home() {
   return (
     <div className="min-h-screen bg-[#ffffff]">
@@ -16,20 +17,35 @@ function Home() {
         </section>
 
         <section id="about" className="scroll-mt-20 bg-[#ffffff]">
-          <Overview />
-        </section>
-
-<section id="ResidenceConfiguration" className="scroll-mt-20 bg-[#ffffff]">
-          <ResidenceConfiguration />
-        </section>
-
-        <section id="location" className="scroll-mt-20 bg-[#ffffff]">
-          <Location />
+          <Expectations />
         </section>
 
         <section id="gallery" className="scroll-mt-20 bg-[#ffffff]">
           <Gallery />
         </section>
+        <section className="scroll-mt-20 bg-[#ffffff]">
+          <Overview />
+        </section>
+        <section
+          id="project"
+          className="scroll-mt-20 bg-[#ffffff]"
+        >
+          <ResidenceConfiguration />
+        </section>
+        {/* <section
+          id="ResidenceConfiguration"
+          className="scroll-mt-20 bg-[#ffffff]"
+        >
+          <ResidenceConfiguration />
+        </section> */}
+
+        <section id="location" className="scroll-mt-20 bg-[#ffffff]">
+          <Location />
+        </section>
+
+        {/* <section id="gallery" className="scroll-mt-20 bg-[#ffffff]">
+          <Gallery />
+        </section> */}
       </main>
 
       <Footer />
