@@ -7,7 +7,7 @@ const navItems = [
   { label: "Gallery", target: "gallery" },
   { label: "Amenities", target: "amenities" },
   { label: "Contact", target: "contact" },
-    { label: "location", target: "location" },
+  { label: "Location", target: "location" },
 ];
 
 function Header() {
