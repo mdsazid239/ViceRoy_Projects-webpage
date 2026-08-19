@@ -220,7 +220,7 @@ function Hero() {
     lg:hidden
   "
 >
-  <div className="mx-auto w-full md:w-[40%]">
+  <div className="mx-auto w-full md:w-[70%]">
     <button
       type="button"
       onClick={scrollToContact}

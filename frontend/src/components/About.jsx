@@ -153,9 +153,384 @@
 
 
 
-import { useEffect, useRef, useState } from "react";
+// import { useEffect, useRef, useState } from "react";
 
-const about = [
+// const about = [
+//   {
+//     title: "We walk every acre",
+//     body: "Before a listing goes live, an agent walks the property boundary in person — the whole parcel, not just the yard — and notes what photos won't show: drainage, tree health, road noise, cell signal.",
+//   },
+//   {
+//     title: "One phone, one person",
+//     body: "You get a direct line to the agent handling your file, not a call center or a rotating cast. If they're out mowing hay, they'll call you back that evening.",
+//   },
+//   {
+//     title: "Deeds you can read in one sitting",
+//     body: "We write disclosures and contracts in plain language first, then hand them to a lawyer to make them official — not the other way around.",
+//   },
+// ];
+
+// const STEWARDS = [
+//   { name: "Marguerite Holt", role: "Broker & Co-founder", note: "Twenty years reading county tax maps for fun.", initials: "MH" },
+//   { name: "Owen Delacroix", role: "Land Steward", note: "Former forester; handles anything with a woodlot or a stream.", initials: "OD" },
+//   { name: "Priya Anand", role: "Farmhouse Specialist", note: "Restores one old house a year, on principle.", initials: "PA" },
+//   { name: "Sam Okafor", role: "Closing Coordinator", note: "Keeps every file honest and on schedule.", initials: "SO" },
+// ];
+
+// const LEDGER = [
+//   { label: "Founded", value: "2011" },
+//   { label: "Counties served", value: "6" },
+//   { label: "Acres represented", value: "14,200+" },
+//   { label: "Avg. time to close", value: "41 days" },
+// ];
+
+// export default function RealEstateAbout() {
+//   const pathRef = useRef(null);
+//   const [drawn, setDrawn] = useState(false);
+
+//   useEffect(() => {
+//     const t = setTimeout(() => setDrawn(true), 200);
+//     return () => clearTimeout(t);
+//   }, []);
+
+//   return (
+//     <div className="lm-root">
+//       <style>{`
+//         @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+//         .lm-root {
+//           --paper: #EEEFE4;
+//           --paper-2: #E6E5D6;
+//           --ink: #211F19;
+//           --forest: #2B4736;
+//           --forest-2: #1D3226;
+//           --barn: #8B3A26;
+//           --gold: #A9843F;
+//           --line: #C7C0A6;
+//           --white: #FBFAF4;
+//           font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+//           background: var(--paper);
+//           color: var(--ink);
+//           line-height: 1.5;
+//         }
+//         .lm-root * { box-sizing: border-box; }
+//         .lm-root .serif { font-family: 'Newsreader', ui-serif, Georgia, serif; }
+//         .lm-root .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+//         .lm-root a { color: inherit; }
+//         .lm-root button:focus-visible,
+//         .lm-root a:focus-visible { outline: 2px solid var(--barn); outline-offset: 3px; }
+
+//         .lm-wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+//         /* ---- top bar ---- */
+//         .lm-topbar {
+//           display: flex; align-items: center; justify-content: space-between;
+//           padding: 26px 0; border-bottom: 1px solid var(--line);
+//         }
+//         .lm-mark { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: 0.01em; }
+//         .lm-mark-glyph {
+//           width: 30px; height: 30px; border: 1.5px solid var(--forest);
+//           border-radius: 2px; position: relative; flex: none;
+//         }
+//         .lm-mark-glyph::after {
+//           content: ""; position: absolute; inset: 5px;
+//           border: 1px solid var(--forest); opacity: 0.5;
+//         }
+//         .lm-topnav { display: flex; gap: 28px; font-size: 14px; color: #5b5648; }
+//         .lm-topnav span:first-child { color: var(--ink); font-weight: 500; }
+//         @media (max-width: 720px) { .lm-topnav { display: none; } }
+
+//         /* ---- hero ---- */
+//         .lm-hero {
+//           display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px;
+//           align-items: center; padding: 72px 0 88px;
+//         }
+//         @media (max-width: 860px) { .lm-hero { grid-template-columns: 1fr; padding: 48px 0 56px; gap: 40px; } }
+//         .lm-eyebrow {
+//           font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.08em;
+//           text-transform: uppercase; color: var(--barn); margin-bottom: 18px;
+//         }
+//         .lm-h1 {
+//           font-size: clamp(34px, 4.6vw, 54px); font-weight: 500; line-height: 1.08;
+//           margin: 0 0 22px; letter-spacing: -0.01em;
+//         }
+//         .lm-h1 em { font-style: italic; color: var(--forest); }
+//         .lm-lede { font-size: 16.5px; color: #423f35; max-width: 46ch; margin: 0 0 30px; }
+//         .lm-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+//         .lm-btn {
+//           font-family: inherit; font-size: 14.5px; font-weight: 500; cursor: pointer;
+//           padding: 13px 22px; border-radius: 2px; border: 1px solid var(--ink);
+//           background: var(--ink); color: var(--white); text-decoration: none;
+//           display: inline-flex; align-items: center; transition: background 0.15s, color .15s;
+//         }
+//         .lm-btn:hover { background: var(--forest-2); border-color: var(--forest-2); }
+//         .lm-btn-ghost {
+//           background: transparent; color: var(--ink); border: 1px solid var(--line);
+//         }
+//         .lm-btn-ghost:hover { border-color: var(--ink); }
+
+//         .lm-plat { width: 100%; height: auto; overflow: visible; }
+//         .lm-plat-line {
+//           fill: none; stroke: var(--forest); stroke-width: 1.6;
+//           stroke-linejoin: round; stroke-dasharray: 900;
+//           stroke-dashoffset: ${drawn ? 0 : 900};
+//           transition: stroke-dashoffset 1.6s ease;
+//         }
+//         .lm-plat-dim { font-family: 'IBM Plex Mono', monospace; font-size: 11px; fill: var(--gold); opacity: ${drawn ? 1 : 0}; transition: opacity 0.5s ease 1s; }
+//         .lm-plat-house { fill: var(--barn); opacity: ${drawn ? 1 : 0}; transition: opacity 0.4s ease 1.3s; }
+//         .lm-plat-north { opacity: ${drawn ? 1 : 0}; transition: opacity 0.4s ease 1.5s; }
+//         @media (prefers-reduced-motion: reduce) {
+//           .lm-plat-line { transition: none; stroke-dashoffset: 0; }
+//           .lm-plat-dim, .lm-plat-house, .lm-plat-north { transition: none; opacity: 1; }
+//         }
+
+//         /* ---- ledger / stats strip ---- */
+//         .lm-ledger {
+//           display: grid; grid-template-columns: repeat(4, 1fr);
+//           border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+//         }
+//         @media (max-width: 640px) { .lm-ledger { grid-template-columns: repeat(2, 1fr); } }
+//         .lm-ledger-cell {
+//           padding: 22px 20px; border-left: 1px solid var(--line);
+//         }
+//         .lm-ledger-cell:first-child { border-left: none; }
+//         @media (max-width: 640px) { .lm-ledger-cell:nth-child(2n+1) { border-left: none; } .lm-ledger-cell:nth-child(n+3) { border-top: 1px solid var(--line); } }
+//         .lm-ledger-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; color: var(--forest); }
+//         .lm-ledger-label { font-size: 12.5px; color: #6b6656; margin-top: 4px; }
+
+//         /* ---- intro / pull quote ---- */
+//         .lm-intro { padding: 84px 0; display: grid; grid-template-columns: 1fr; gap: 24px; }
+//         .lm-pullquote {
+//           font-family: 'Newsreader', serif; font-style: italic; font-weight: 400;
+//           font-size: clamp(22px, 3vw, 30px); line-height: 1.4; max-width: 34ch;
+//           color: var(--forest-2);
+//         }
+//         .lm-pullquote::before { content: "\\201C"; color: var(--barn); font-style: normal; }
+//         .lm-pullquote::after { content: "\\201D"; color: var(--barn); font-style: normal; }
+
+//         /* ---- principles ---- */
+//         .lm-section { padding: 70px 0; }
+//         .lm-kicker {
+//           font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em;
+//           text-transform: uppercase; color: #7a7561; margin-bottom: 10px;
+//         }
+//         .lm-h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 500; margin: 0 0 40px; letter-spacing: -0.01em; }
+
+//         .lm-principle-row {
+//           display: grid; grid-template-columns: 90px 1fr; gap: 24px;
+//           padding: 26px 0; border-top: 1px solid var(--line);
+//         }
+//         .lm-principle-row:last-child { border-bottom: 1px solid var(--line); }
+//         @media (max-width: 640px) { .lm-principle-row { grid-template-columns: 1fr; gap: 8px; } }
+//         .lm-principle-idx { font-family: 'IBM Plex Mono', monospace; color: var(--gold); font-size: 13px; padding-top: 4px; }
+//         .lm-principle-title { font-family: 'Newsreader', serif; font-size: 20px; margin: 0 0 6px; }
+//         .lm-principle-body { color: #4a4638; font-size: 15px; max-width: 60ch; margin: 0; }
+
+//         /* ---- stewards ---- */
+//         .lm-stewards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+//         @media (max-width: 860px) { .lm-stewards { grid-template-columns: repeat(2, 1fr); } }
+//         @media (max-width: 480px) { .lm-stewards { grid-template-columns: 1fr; } }
+//         .lm-steward-avatar {
+//           width: 56px; height: 56px; border-radius: 50%;
+//           display: flex; align-items: center; justify-content: center;
+//           font-family: 'Newsreader', serif; font-size: 18px; color: var(--white);
+//           margin-bottom: 14px;
+//         }
+//         .lm-steward-name { font-weight: 600; font-size: 15px; margin-bottom: 2px; }
+//         .lm-steward-role { font-size: 13px; color: var(--barn); margin-bottom: 10px; }
+//         .lm-steward-note { font-size: 13.5px; color: #5b5648; margin: 0; }
+
+//         /* ---- testimonial ---- */
+//         .lm-testimonial {
+//           background: var(--paper-2); border: 1px solid var(--line); border-radius: 2px;
+//           padding: 44px; position: relative; margin: 0 0 0;
+//         }
+//         @media (max-width: 640px) { .lm-testimonial { padding: 30px 24px; } }
+//         .lm-testimonial-quote {
+//           font-family: 'Newsreader', serif; font-style: italic; font-size: 20px;
+//           line-height: 1.55; margin: 0 0 18px; max-width: 62ch;
+//         }
+//         .lm-testimonial-attr { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #6b6656; }
+
+//         /* ---- contact / cta ---- */
+//         .lm-contact {
+//           background: var(--forest-2); color: var(--white); border-radius: 3px;
+//           padding: 56px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;
+//         }
+//         @media (max-width: 760px) { .lm-contact { grid-template-columns: 1fr; padding: 40px 28px; } }
+//         .lm-contact-h { font-family: 'Newsreader', serif; font-size: clamp(22px, 3vw, 30px); margin: 0 0 14px; font-weight: 500; }
+//         .lm-contact-p { color: #cfd6cc; font-size: 15px; max-width: 42ch; margin: 0; }
+//         .lm-contact-details { display: flex; flex-direction: column; gap: 14px; }
+//         .lm-contact-row { display: flex; justify-content: space-between; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.16); padding-bottom: 12px; }
+//         .lm-contact-row span:first-child { color: #9fab99; font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+//         .lm-contact-row a { text-decoration: none; }
+//         .lm-contact-row a:hover { text-decoration: underline; }
+
+//         /* ---- footer ---- */
+//         .lm-footer {
+//           padding: 40px 0 60px; display: flex; justify-content: space-between;
+//           align-items: center; font-size: 13px; color: #6b6656; border-top: 1px solid var(--line); margin-top: 60px;
+//         }
+//         @media (max-width: 600px) { .lm-footer { flex-direction: column; gap: 10px; text-align: center; } }
+//       `}</style>
+
+//       <div className="lm-wrap">
+//         <div className="lm-topbar">
+//           <div className="lm-mark">
+//             <span className="lm-mark-glyph" aria-hidden="true" />
+//             Longmeadow Land Co.
+//           </div>
+//           <nav className="lm-topnav">
+//             <span>About</span>
+//             <span>Listings</span>
+//             <span>Stewards</span>
+//             <span>Contact</span>
+//           </nav>
+//         </div>
+
+//         <section className="lm-hero">
+//           <div>
+//             <div className="lm-eyebrow">Rural &amp; small-town real estate — since 2011</div>
+//             <h1 className="lm-h1">
+//               We still sell land the <em>old way</em> — on foot, in daylight, with a handshake at the end.
+//             </h1>
+//             <p className="lm-lede">
+//               Longmeadow was started by two former appraisers who got tired of listings written by algorithms.
+//               We work in the towns within an hour of home, and every property we represent gets walked,
+//               measured, and written up by someone who has actually stood on it.
+//             </p>
+//             <div className="lm-cta-row">
+//               <a className="lm-btn" href="#contact">Start a conversation</a>
+//               <a className="lm-btn lm-btn-ghost" href="#stewards">Meet the stewards</a>
+//             </div>
+//           </div>
+
+//           <div>
+//             {/* <svg
+//               className="lm-plat"
+//               viewBox="0 0 380 320"
+//               role="img"
+//               aria-label="Illustrated survey plat of a land parcel with a house marker and dimension labels"
+//             >
+//               <polygon
+//                 ref={pathRef}
+//                 className="lm-plat-line"
+//                 points="40,60 300,40 340,220 120,280 30,190"
+//               />
+//               <text className="lm-plat-dim" x="150" y="34">168&#39; — north line</text>
+//               <text className="lm-plat-dim" x="330" y="130" transform="rotate(80 330 130)">142&#39;</text>
+//               <text className="lm-plat-dim" x="200" y="290">acreage 4.1</text>
+//               <text className="lm-plat-dim" x="20" y="130" transform="rotate(-70 20 130)">96&#39;</text>
+//               <rect className="lm-plat-house" x="165" y="140" width="46" height="34" />
+//               <polygon className="lm-plat-house" points="160,140 216,140 188,120" />
+//               <g className="lm-plat-north" transform="translate(300,250)">
+//                 <line x1="0" y1="18" x2="0" y2="-6" stroke="#8B3A26" strokeWidth="1.4" />
+//                 <polygon points="0,-10 -4,0 4,0" fill="#8B3A26" />
+//                 <text x="7" y="0" className="lm-plat-dim" fill="#8B3A26">N</text>
+//               </g>
+//             </svg> */}
+//           </div>
+//         </section>
+
+//         <div className="lm-ledger">
+//           {LEDGER.map((item) => (
+//             <div className="lm-ledger-cell" key={item.label}>
+//               <div className="lm-ledger-value">{item.value}</div>
+//               <div className="lm-ledger-label">{item.label}</div>
+//             </div>
+//           ))}
+//         </div>
+
+//         <section className="lm-intro">
+//           <p className="lm-pullquote">
+//             A house is easy to describe. A property — the well, the woodlot, the neighbor's fence line —
+//             takes longer, and we take the time.
+//           </p>
+//         </section>
+
+//         <section className="lm-section">
+//           <div className="lm-kicker">What guides us</div>
+//           <h2 className="lm-h2">Three things we won't shortcut</h2>
+//           {PRINCIPLES.map((p, i) => (
+//             <div className="lm-principle-row" key={p.title}>
+//               <div className="lm-principle-idx">{String(i + 1).padStart(2, "0")}</div>
+//               <div>
+//                 <h3 className="lm-principle-title">{p.title}</h3>
+//                 <p className="lm-principle-body">{p.body}</p>
+//               </div>
+//             </div>
+//           ))}
+//         </section>
+
+//         <section className="lm-section" id="stewards">
+//           <div className="lm-kicker">Who you'll actually talk to</div>
+//           <h2 className="lm-h2">The stewards</h2>
+//           <div className="lm-stewards">
+//             {STEWARDS.map((s, i) => {
+//               const colors = ["#2B4736", "#8B3A26", "#A9843F", "#4C5B3E"];
+//               return (
+//                 <div key={s.name}>
+//                   <div className="lm-steward-avatar" style={{ background: colors[i % colors.length] }}>
+//                     {s.initials}
+//                   </div>
+//                   <div className="lm-steward-name">{s.name}</div>
+//                   <div className="lm-steward-role">{s.role}</div>
+//                   <p className="lm-steward-note">{s.note}</p>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </section>
+
+//         <section className="lm-section">
+//           <div className="lm-testimonial">
+//             <p className="lm-testimonial-quote">
+//               They found us a farmhouse with a barn the internet said didn't exist. Turned out the county
+//               map was thirty years out of date — Owen had already walked it and knew.
+//             </p>
+//             <div className="lm-testimonial-attr">KATHLEEN R. — bought 4 acres in Hartwell County, 2023</div>
+//           </div>
+//         </section>
+
+//         <section className="lm-section" id="contact">
+//           <div className="lm-contact">
+//             <div>
+//               <h2 className="lm-contact-h">Have land in mind, or land to sell?</h2>
+//               <p className="lm-contact-p">
+//                 Start with a conversation, not a listing agreement. We'll tell you plainly if we're not
+//                 the right fit for your property.
+//               </p>
+//             </div>
+//             <div className="lm-contact-details">
+//               <div className="lm-contact-row">
+//                 <span>Phone</span>
+//                 <a href="tel:16035550148">(603) 555-0148</a>
+//               </div>
+//               <div className="lm-contact-row">
+//                 <span>Email</span>
+//                 <a href="mailto:hello@longmeadowland.co">hello@longmeadowland.co</a>
+//               </div>
+//               <div className="lm-contact-row">
+//                 <span>Office</span>
+//                 <span>12 Mill Street, Hartwell, NH</span>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//         <div className="lm-footer">
+//           <span>Longmeadow Land Co. — licensed real estate brokerage, New Hampshire.</span>
+//           <span>© 2026, all rights reserved.</span>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+import { useEffect, useState } from "react";
+
+const ABOUT = [
   {
     title: "We walk every acre",
     body: "Before a listing goes live, an agent walks the property boundary in person — the whole parcel, not just the yard — and notes what photos won't show: drainage, tree health, road noise, cell signal.",
@@ -171,10 +546,30 @@ const about = [
 ];
 
 const STEWARDS = [
-  { name: "Marguerite Holt", role: "Broker & Co-founder", note: "Twenty years reading county tax maps for fun.", initials: "MH" },
-  { name: "Owen Delacroix", role: "Land Steward", note: "Former forester; handles anything with a woodlot or a stream.", initials: "OD" },
-  { name: "Priya Anand", role: "Farmhouse Specialist", note: "Restores one old house a year, on principle.", initials: "PA" },
-  { name: "Sam Okafor", role: "Closing Coordinator", note: "Keeps every file honest and on schedule.", initials: "SO" },
+  {
+    name: "Marguerite Holt",
+    role: "Broker & Co-founder",
+    note: "Twenty years reading county tax maps for fun.",
+    initials: "MH",
+  },
+  {
+    name: "Owen Delacroix",
+    role: "Land Steward",
+    note: "Former forester; handles anything with a woodlot or a stream.",
+    initials: "OD",
+  },
+  {
+    name: "Priya Anand",
+    role: "Farmhouse Specialist",
+    note: "Restores one old house a year, on principle.",
+    initials: "PA",
+  },
+  {
+    name: "Sam Okafor",
+    role: "Closing Coordinator",
+    note: "Keeps every file honest and on schedule.",
+    initials: "SO",
+  },
 ];
 
 const LEDGER = [
@@ -184,345 +579,366 @@ const LEDGER = [
   { label: "Avg. time to close", value: "41 days" },
 ];
 
+const AVATAR_COLORS = [
+  "bg-[#2B4736]",
+  "bg-[#8B3A26]",
+  "bg-[#A9843F]",
+  "bg-[#4C5B3E]",
+];
+
 export default function RealEstateAbout() {
-  const pathRef = useRef(null);
   const [drawn, setDrawn] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setDrawn(true), 200);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setDrawn(true), 200);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="lm-root">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+    <main className="min-w-[320px] overflow-x-hidden bg-[#EEEFE4] text-[#211F19]">
+      <div className="mx-auto w-full max-w-[1120px] px-4 sm:px-6 lg:px-7">
 
-        .lm-root {
-          --paper: #EEEFE4;
-          --paper-2: #E6E5D6;
-          --ink: #211F19;
-          --forest: #2B4736;
-          --forest-2: #1D3226;
-          --barn: #8B3A26;
-          --gold: #A9843F;
-          --line: #C7C0A6;
-          --white: #FBFAF4;
-          font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-          background: var(--paper);
-          color: var(--ink);
-          line-height: 1.5;
-        }
-        .lm-root * { box-sizing: border-box; }
-        .lm-root .serif { font-family: 'Newsreader', ui-serif, Georgia, serif; }
-        .lm-root .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
-        .lm-root a { color: inherit; }
-        .lm-root button:focus-visible,
-        .lm-root a:focus-visible { outline: 2px solid var(--barn); outline-offset: 3px; }
+        {/* ==================== HEADER ==================== */}
+        <header className="flex items-center justify-between border-b border-[#C7C0A6] py-5 sm:py-6">
+          <div className="flex items-center gap-2.5 font-semibold tracking-[0.01em]">
+            <span
+              aria-hidden="true"
+              className="relative h-[30px] w-[30px] shrink-0 rounded-[2px] border-[1.5px] border-[#2B4736]"
+            >
+              <span className="absolute inset-[5px] border border-[#2B4736]/50" />
+            </span>
 
-        .lm-wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
-
-        /* ---- top bar ---- */
-        .lm-topbar {
-          display: flex; align-items: center; justify-content: space-between;
-          padding: 26px 0; border-bottom: 1px solid var(--line);
-        }
-        .lm-mark { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: 0.01em; }
-        .lm-mark-glyph {
-          width: 30px; height: 30px; border: 1.5px solid var(--forest);
-          border-radius: 2px; position: relative; flex: none;
-        }
-        .lm-mark-glyph::after {
-          content: ""; position: absolute; inset: 5px;
-          border: 1px solid var(--forest); opacity: 0.5;
-        }
-        .lm-topnav { display: flex; gap: 28px; font-size: 14px; color: #5b5648; }
-        .lm-topnav span:first-child { color: var(--ink); font-weight: 500; }
-        @media (max-width: 720px) { .lm-topnav { display: none; } }
-
-        /* ---- hero ---- */
-        .lm-hero {
-          display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px;
-          align-items: center; padding: 72px 0 88px;
-        }
-        @media (max-width: 860px) { .lm-hero { grid-template-columns: 1fr; padding: 48px 0 56px; gap: 40px; } }
-        .lm-eyebrow {
-          font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.08em;
-          text-transform: uppercase; color: var(--barn); margin-bottom: 18px;
-        }
-        .lm-h1 {
-          font-size: clamp(34px, 4.6vw, 54px); font-weight: 500; line-height: 1.08;
-          margin: 0 0 22px; letter-spacing: -0.01em;
-        }
-        .lm-h1 em { font-style: italic; color: var(--forest); }
-        .lm-lede { font-size: 16.5px; color: #423f35; max-width: 46ch; margin: 0 0 30px; }
-        .lm-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
-        .lm-btn {
-          font-family: inherit; font-size: 14.5px; font-weight: 500; cursor: pointer;
-          padding: 13px 22px; border-radius: 2px; border: 1px solid var(--ink);
-          background: var(--ink); color: var(--white); text-decoration: none;
-          display: inline-flex; align-items: center; transition: background 0.15s, color .15s;
-        }
-        .lm-btn:hover { background: var(--forest-2); border-color: var(--forest-2); }
-        .lm-btn-ghost {
-          background: transparent; color: var(--ink); border: 1px solid var(--line);
-        }
-        .lm-btn-ghost:hover { border-color: var(--ink); }
-
-        .lm-plat { width: 100%; height: auto; overflow: visible; }
-        .lm-plat-line {
-          fill: none; stroke: var(--forest); stroke-width: 1.6;
-          stroke-linejoin: round; stroke-dasharray: 900;
-          stroke-dashoffset: ${drawn ? 0 : 900};
-          transition: stroke-dashoffset 1.6s ease;
-        }
-        .lm-plat-dim { font-family: 'IBM Plex Mono', monospace; font-size: 11px; fill: var(--gold); opacity: ${drawn ? 1 : 0}; transition: opacity 0.5s ease 1s; }
-        .lm-plat-house { fill: var(--barn); opacity: ${drawn ? 1 : 0}; transition: opacity 0.4s ease 1.3s; }
-        .lm-plat-north { opacity: ${drawn ? 1 : 0}; transition: opacity 0.4s ease 1.5s; }
-        @media (prefers-reduced-motion: reduce) {
-          .lm-plat-line { transition: none; stroke-dashoffset: 0; }
-          .lm-plat-dim, .lm-plat-house, .lm-plat-north { transition: none; opacity: 1; }
-        }
-
-        /* ---- ledger / stats strip ---- */
-        .lm-ledger {
-          display: grid; grid-template-columns: repeat(4, 1fr);
-          border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-        }
-        @media (max-width: 640px) { .lm-ledger { grid-template-columns: repeat(2, 1fr); } }
-        .lm-ledger-cell {
-          padding: 22px 20px; border-left: 1px solid var(--line);
-        }
-        .lm-ledger-cell:first-child { border-left: none; }
-        @media (max-width: 640px) { .lm-ledger-cell:nth-child(2n+1) { border-left: none; } .lm-ledger-cell:nth-child(n+3) { border-top: 1px solid var(--line); } }
-        .lm-ledger-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; color: var(--forest); }
-        .lm-ledger-label { font-size: 12.5px; color: #6b6656; margin-top: 4px; }
-
-        /* ---- intro / pull quote ---- */
-        .lm-intro { padding: 84px 0; display: grid; grid-template-columns: 1fr; gap: 24px; }
-        .lm-pullquote {
-          font-family: 'Newsreader', serif; font-style: italic; font-weight: 400;
-          font-size: clamp(22px, 3vw, 30px); line-height: 1.4; max-width: 34ch;
-          color: var(--forest-2);
-        }
-        .lm-pullquote::before { content: "\\201C"; color: var(--barn); font-style: normal; }
-        .lm-pullquote::after { content: "\\201D"; color: var(--barn); font-style: normal; }
-
-        /* ---- principles ---- */
-        .lm-section { padding: 70px 0; }
-        .lm-kicker {
-          font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em;
-          text-transform: uppercase; color: #7a7561; margin-bottom: 10px;
-        }
-        .lm-h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 500; margin: 0 0 40px; letter-spacing: -0.01em; }
-
-        .lm-principle-row {
-          display: grid; grid-template-columns: 90px 1fr; gap: 24px;
-          padding: 26px 0; border-top: 1px solid var(--line);
-        }
-        .lm-principle-row:last-child { border-bottom: 1px solid var(--line); }
-        @media (max-width: 640px) { .lm-principle-row { grid-template-columns: 1fr; gap: 8px; } }
-        .lm-principle-idx { font-family: 'IBM Plex Mono', monospace; color: var(--gold); font-size: 13px; padding-top: 4px; }
-        .lm-principle-title { font-family: 'Newsreader', serif; font-size: 20px; margin: 0 0 6px; }
-        .lm-principle-body { color: #4a4638; font-size: 15px; max-width: 60ch; margin: 0; }
-
-        /* ---- stewards ---- */
-        .lm-stewards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
-        @media (max-width: 860px) { .lm-stewards { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .lm-stewards { grid-template-columns: 1fr; } }
-        .lm-steward-avatar {
-          width: 56px; height: 56px; border-radius: 50%;
-          display: flex; align-items: center; justify-content: center;
-          font-family: 'Newsreader', serif; font-size: 18px; color: var(--white);
-          margin-bottom: 14px;
-        }
-        .lm-steward-name { font-weight: 600; font-size: 15px; margin-bottom: 2px; }
-        .lm-steward-role { font-size: 13px; color: var(--barn); margin-bottom: 10px; }
-        .lm-steward-note { font-size: 13.5px; color: #5b5648; margin: 0; }
-
-        /* ---- testimonial ---- */
-        .lm-testimonial {
-          background: var(--paper-2); border: 1px solid var(--line); border-radius: 2px;
-          padding: 44px; position: relative; margin: 0 0 0;
-        }
-        @media (max-width: 640px) { .lm-testimonial { padding: 30px 24px; } }
-        .lm-testimonial-quote {
-          font-family: 'Newsreader', serif; font-style: italic; font-size: 20px;
-          line-height: 1.55; margin: 0 0 18px; max-width: 62ch;
-        }
-        .lm-testimonial-attr { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #6b6656; }
-
-        /* ---- contact / cta ---- */
-        .lm-contact {
-          background: var(--forest-2); color: var(--white); border-radius: 3px;
-          padding: 56px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;
-        }
-        @media (max-width: 760px) { .lm-contact { grid-template-columns: 1fr; padding: 40px 28px; } }
-        .lm-contact-h { font-family: 'Newsreader', serif; font-size: clamp(22px, 3vw, 30px); margin: 0 0 14px; font-weight: 500; }
-        .lm-contact-p { color: #cfd6cc; font-size: 15px; max-width: 42ch; margin: 0; }
-        .lm-contact-details { display: flex; flex-direction: column; gap: 14px; }
-        .lm-contact-row { display: flex; justify-content: space-between; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.16); padding-bottom: 12px; }
-        .lm-contact-row span:first-child { color: #9fab99; font-family: 'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
-        .lm-contact-row a { text-decoration: none; }
-        .lm-contact-row a:hover { text-decoration: underline; }
-
-        /* ---- footer ---- */
-        .lm-footer {
-          padding: 40px 0 60px; display: flex; justify-content: space-between;
-          align-items: center; font-size: 13px; color: #6b6656; border-top: 1px solid var(--line); margin-top: 60px;
-        }
-        @media (max-width: 600px) { .lm-footer { flex-direction: column; gap: 10px; text-align: center; } }
-      `}</style>
-
-      <div className="lm-wrap">
-        <div className="lm-topbar">
-          <div className="lm-mark">
-            <span className="lm-mark-glyph" aria-hidden="true" />
-            Longmeadow Land Co.
+            <span className="text-sm sm:text-base">
+              Longmeadow Land Co.
+            </span>
           </div>
-          <nav className="lm-topnav">
-            <span>About</span>
+
+          <nav className="hidden items-center gap-7 text-sm text-[#5B5648] md:flex">
+            <span className="font-medium text-[#211F19]">About</span>
             <span>Listings</span>
             <span>Stewards</span>
             <span>Contact</span>
           </nav>
-        </div>
+        </header>
 
-        <section className="lm-hero">
-          <div>
-            <div className="lm-eyebrow">Rural &amp; small-town real estate — since 2011</div>
-            <h1 className="lm-h1">
-              We still sell land the <em>old way</em> — on foot, in daylight, with a handshake at the end.
+        {/* ==================== HERO ==================== */}
+        <section className="grid grid-cols-1 items-center gap-8 py-12 sm:gap-10 sm:py-14 md:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:py-20 xl:py-24">
+          <div className="min-w-0">
+            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.08em] text-[#8B3A26] sm:text-xs">
+              Rural &amp; small-town real estate — since 2011
+            </div>
+
+            <h1 className="m-0 mb-5 max-w-3xl font-serif text-[34px] font-medium leading-[1.08] tracking-tight sm:text-[40px] md:text-[46px] lg:text-[50px] xl:text-[54px]">
+              We still sell land the{" "}
+              <em className="text-[#2B4736]">old way</em> — on foot, in
+              daylight, with a handshake at the end.
             </h1>
-            <p className="lm-lede">
-              Longmeadow was started by two former appraisers who got tired of listings written by algorithms.
-              We work in the towns within an hour of home, and every property we represent gets walked,
+
+            <p className="mb-7 max-w-[46ch] text-[15px] leading-7 text-[#423F35] sm:text-base">
+              Longmeadow was started by two former appraisers who got tired of
+              listings written by algorithms. We work in the towns within an
+              hour of home, and every property we represent gets walked,
               measured, and written up by someone who has actually stood on it.
             </p>
-            <div className="lm-cta-row">
-              <a className="lm-btn" href="#contact">Start a conversation</a>
-              <a className="lm-btn lm-btn-ghost" href="#stewards">Meet the stewards</a>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                href="#contact"
+                className="inline-flex w-full items-center justify-center border border-[#211F19] bg-[#211F19] px-5 py-3 text-sm font-medium text-[#FBFAF4] transition hover:border-[#1D3226] hover:bg-[#1D3226] sm:w-auto"
+              >
+                Start a conversation
+              </a>
+
+              <a
+                href="#stewards"
+                className="inline-flex w-full items-center justify-center border border-[#C7C0A6] bg-transparent px-5 py-3 text-sm font-medium text-[#211F19] transition hover:border-[#211F19] sm:w-auto"
+              >
+                Meet the stewards
+              </a>
             </div>
           </div>
 
-          <div>
-            {/* <svg
-              className="lm-plat"
+          {/* Land illustration */}
+          <div className="flex min-h-[220px] items-center justify-center lg:min-h-[320px]">
+            <svg
               viewBox="0 0 380 320"
+              className="h-auto w-full max-w-[380px]"
               role="img"
-              aria-label="Illustrated survey plat of a land parcel with a house marker and dimension labels"
+              aria-label="Illustrated survey plat of a land parcel"
             >
               <polygon
-                ref={pathRef}
-                className="lm-plat-line"
                 points="40,60 300,40 340,220 120,280 30,190"
+                fill="none"
+                stroke="#2B4736"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+                strokeDasharray="900"
+                strokeDashoffset={drawn ? 0 : 900}
+                className="transition-[stroke-dashoffset] duration-[1600ms] ease-out"
               />
-              <text className="lm-plat-dim" x="150" y="34">168&#39; — north line</text>
-              <text className="lm-plat-dim" x="330" y="130" transform="rotate(80 330 130)">142&#39;</text>
-              <text className="lm-plat-dim" x="200" y="290">acreage 4.1</text>
-              <text className="lm-plat-dim" x="20" y="130" transform="rotate(-70 20 130)">96&#39;</text>
-              <rect className="lm-plat-house" x="165" y="140" width="46" height="34" />
-              <polygon className="lm-plat-house" points="160,140 216,140 188,120" />
-              <g className="lm-plat-north" transform="translate(300,250)">
-                <line x1="0" y1="18" x2="0" y2="-6" stroke="#8B3A26" strokeWidth="1.4" />
-                <polygon points="0,-10 -4,0 4,0" fill="#8B3A26" />
-                <text x="7" y="0" className="lm-plat-dim" fill="#8B3A26">N</text>
+
+              <text
+                x="150"
+                y="34"
+                fill="#A9843F"
+                fontFamily="monospace"
+                fontSize="11"
+                className={`transition-opacity delay-1000 duration-500 ${
+                  drawn ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                168&apos; — north line
+              </text>
+
+              <text
+                x="330"
+                y="130"
+                fill="#A9843F"
+                fontFamily="monospace"
+                fontSize="11"
+                transform="rotate(80 330 130)"
+              >
+                142&apos;
+              </text>
+
+              <text
+                x="200"
+                y="290"
+                fill="#A9843F"
+                fontFamily="monospace"
+                fontSize="11"
+              >
+                acreage 4.1
+              </text>
+
+              <rect
+                x="165"
+                y="140"
+                width="46"
+                height="34"
+                fill="#8B3A26"
+              />
+
+              <polygon
+                points="160,140 216,140 188,120"
+                fill="#8B3A26"
+              />
+
+              <g transform="translate(300,250)">
+                <line
+                  x1="0"
+                  y1="18"
+                  x2="0"
+                  y2="-6"
+                  stroke="#8B3A26"
+                  strokeWidth="1.4"
+                />
+
+                <polygon
+                  points="0,-10 -4,0 4,0"
+                  fill="#8B3A26"
+                />
+
+                <text
+                  x="7"
+                  y="0"
+                  fill="#8B3A26"
+                  fontFamily="monospace"
+                  fontSize="11"
+                >
+                  N
+                </text>
               </g>
-            </svg> */}
+            </svg>
           </div>
         </section>
 
-        <div className="lm-ledger">
-          {LEDGER.map((item) => (
-            <div className="lm-ledger-cell" key={item.label}>
-              <div className="lm-ledger-value">{item.value}</div>
-              <div className="lm-ledger-label">{item.label}</div>
+        {/* ==================== STATS ==================== */}
+        <section className="grid grid-cols-2 border-y border-[#C7C0A6] lg:grid-cols-4">
+          {LEDGER.map((item, index) => (
+            <div
+              key={item.label}
+              className={`
+                min-w-0 px-3 py-5 sm:px-5 sm:py-6
+                ${index % 2 !== 0 ? "border-l border-[#C7C0A6]" : ""}
+                ${index >= 2 ? "border-t border-[#C7C0A6] lg:border-t-0" : ""}
+                ${index >= 1 ? "lg:border-l" : ""}
+              `}
+            >
+              <div className="break-words font-mono text-lg text-[#2B4736] sm:text-xl lg:text-[22px]">
+                {item.value}
+              </div>
+
+              <div className="mt-1 text-[11px] leading-5 text-[#6B6656] sm:text-xs">
+                {item.label}
+              </div>
             </div>
           ))}
-        </div>
+        </section>
 
-        <section className="lm-intro">
-          <p className="lm-pullquote">
-            A house is easy to describe. A property — the well, the woodlot, the neighbor's fence line —
-            takes longer, and we take the time.
+        {/* ==================== INTRO ==================== */}
+        <section className="py-16 sm:py-20 md:py-24">
+          <p className="max-w-[34ch] font-serif text-[23px] italic leading-[1.4] text-[#1D3226] sm:text-[26px] md:text-[30px]">
+            <span className="text-[#8B3A26] not-italic">“</span>
+            A house is easy to describe. A property — the well, the woodlot,
+            the neighbor&apos;s fence line — takes longer, and we take the time.
+            <span className="text-[#8B3A26] not-italic">”</span>
           </p>
         </section>
 
-        <section className="lm-section">
-          <div className="lm-kicker">What guides us</div>
-          <h2 className="lm-h2">Three things we won't shortcut</h2>
-          {PRINCIPLES.map((p, i) => (
-            <div className="lm-principle-row" key={p.title}>
-              <div className="lm-principle-idx">{String(i + 1).padStart(2, "0")}</div>
-              <div>
-                <h3 className="lm-principle-title">{p.title}</h3>
-                <p className="lm-principle-body">{p.body}</p>
+        {/* ==================== PRINCIPLES ==================== */}
+        <section className="py-14 sm:py-16 md:py-20">
+          <div className="mb-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#7A7561]">
+            What guides us
+          </div>
+
+          <h2 className="mb-8 font-serif text-2xl font-medium tracking-tight sm:mb-10 sm:text-3xl">
+            Three things we won&apos;t shortcut
+          </h2>
+
+          {ABOUT.map((item, index) => (
+            <article
+              key={item.title}
+              className="grid grid-cols-1 gap-2 border-t border-[#C7C0A6] py-6 sm:grid-cols-[70px_1fr] sm:gap-5 md:grid-cols-[90px_1fr]"
+            >
+              <div className="pt-1 font-mono text-xs text-[#A9843F]">
+                {String(index + 1).padStart(2, "0")}
               </div>
-            </div>
+
+              <div className="min-w-0">
+                <h3 className="mb-1.5 font-serif text-xl">
+                  {item.title}
+                </h3>
+
+                <p className="m-0 max-w-[60ch] text-sm leading-6 text-[#4A4638] sm:text-[15px]">
+                  {item.body}
+                </p>
+              </div>
+            </article>
           ))}
         </section>
 
-        <section className="lm-section" id="stewards">
-          <div className="lm-kicker">Who you'll actually talk to</div>
-          <h2 className="lm-h2">The stewards</h2>
-          <div className="lm-stewards">
-            {STEWARDS.map((s, i) => {
-              const colors = ["#2B4736", "#8B3A26", "#A9843F", "#4C5B3E"];
-              return (
-                <div key={s.name}>
-                  <div className="lm-steward-avatar" style={{ background: colors[i % colors.length] }}>
-                    {s.initials}
-                  </div>
-                  <div className="lm-steward-name">{s.name}</div>
-                  <div className="lm-steward-role">{s.role}</div>
-                  <p className="lm-steward-note">{s.note}</p>
+        {/* ==================== STEWARDS ==================== */}
+        <section
+          id="stewards"
+          className="scroll-mt-20 py-14 sm:py-16 md:py-20"
+        >
+          <div className="mb-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#7A7561]">
+            Who you&apos;ll actually talk to
+          </div>
+
+          <h2 className="mb-8 font-serif text-2xl font-medium tracking-tight sm:mb-10 sm:text-3xl">
+            The stewards
+          </h2>
+
+          <div className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
+            {STEWARDS.map((steward, index) => (
+              <article key={steward.name} className="min-w-0">
+                <div
+                  className={`mb-3.5 flex h-14 w-14 items-center justify-center rounded-full font-serif text-lg text-[#FBFAF4] ${AVATAR_COLORS[index]}`}
+                >
+                  {steward.initials}
                 </div>
-              );
-            })}
+
+                <div className="mb-0.5 text-sm font-semibold">
+                  {steward.name}
+                </div>
+
+                <div className="mb-2.5 text-[13px] text-[#8B3A26]">
+                  {steward.role}
+                </div>
+
+                <p className="m-0 text-[13px] leading-5 text-[#5B5648]">
+                  {steward.note}
+                </p>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section className="lm-section">
-          <div className="lm-testimonial">
-            <p className="lm-testimonial-quote">
-              They found us a farmhouse with a barn the internet said didn't exist. Turned out the county
-              map was thirty years out of date — Owen had already walked it and knew.
+        {/* ==================== TESTIMONIAL ==================== */}
+        <section className="py-14 sm:py-16">
+          <div className="rounded border border-[#C7C0A6] bg-[#E6E5D6] p-6 sm:p-8 md:p-11">
+            <p className="mb-5 max-w-[62ch] font-serif text-lg italic leading-7 sm:text-xl">
+              They found us a farmhouse with a barn the internet said didn&apos;t
+              exist. Turned out the county map was thirty years out of date —
+              Owen had already walked it and knew.
             </p>
-            <div className="lm-testimonial-attr">KATHLEEN R. — bought 4 acres in Hartwell County, 2023</div>
+
+            <div className="font-mono text-[11px] text-[#6B6656] sm:text-xs">
+              KATHLEEN R. — bought 4 acres in Hartwell County, 2023
+            </div>
           </div>
         </section>
 
-        <section className="lm-section" id="contact">
-          <div className="lm-contact">
+        {/* ==================== CONTACT ==================== */}
+        <section
+          id="contact"
+          className="scroll-mt-20 py-14 sm:py-16 md:py-20"
+        >
+          <div className="grid grid-cols-1 gap-8 rounded-[3px] bg-[#1D3226] p-6 text-[#FBFAF4] sm:p-8 md:p-10 lg:grid-cols-[1.2fr_1fr] lg:gap-10 lg:p-14">
             <div>
-              <h2 className="lm-contact-h">Have land in mind, or land to sell?</h2>
-              <p className="lm-contact-p">
-                Start with a conversation, not a listing agreement. We'll tell you plainly if we're not
-                the right fit for your property.
+              <h2 className="mb-3.5 font-serif text-2xl font-medium sm:text-3xl">
+                Have land in mind, or land to sell?
+              </h2>
+
+              <p className="m-0 max-w-[42ch] text-sm leading-6 text-[#CFD6CC] sm:text-[15px]">
+                Start with a conversation, not a listing agreement. We&apos;ll
+                tell you plainly if we&apos;re not the right fit for your
+                property.
               </p>
             </div>
-            <div className="lm-contact-details">
-              <div className="lm-contact-row">
-                <span>Phone</span>
-                <a href="tel:16035550148">(603) 555-0148</a>
+
+            <div className="flex flex-col gap-3.5">
+              <div className="flex flex-col gap-1 border-b border-white/15 pb-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#9FAB99]">
+                  Phone
+                </span>
+
+                <a
+                  href="tel:16035550148"
+                  className="text-sm hover:underline"
+                >
+                  (603) 555-0148
+                </a>
               </div>
-              <div className="lm-contact-row">
-                <span>Email</span>
-                <a href="mailto:hello@longmeadowland.co">hello@longmeadowland.co</a>
+
+              <div className="flex flex-col gap-1 border-b border-white/15 pb-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#9FAB99]">
+                  Email
+                </span>
+
+                <a
+                  href="mailto:hello@longmeadowland.co"
+                  className="break-all text-sm hover:underline"
+                >
+                  hello@longmeadowland.co
+                </a>
               </div>
-              <div className="lm-contact-row">
-                <span>Office</span>
-                <span>12 Mill Street, Hartwell, NH</span>
+
+              <div className="flex flex-col gap-1 border-b border-white/15 pb-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#9FAB99]">
+                  Office
+                </span>
+
+                <span className="text-sm">
+                  12 Mill Street, Hartwell, NH
+                </span>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="lm-footer">
-          <span>Longmeadow Land Co. — licensed real estate brokerage, New Hampshire.</span>
+        {/* ==================== FOOTER ==================== */}
+        <footer className="flex flex-col gap-2 border-t border-[#C7C0A6] py-8 text-center text-xs text-[#6B6656] sm:flex-row sm:items-center sm:justify-between sm:py-10 sm:text-left md:pb-14">
+          <span>
+            Longmeadow Land Co. — licensed real estate brokerage, New Hampshire.
+          </span>
+
           <span>© 2026, all rights reserved.</span>
-        </div>
+        </footer>
       </div>
-    </div>
+    </main>
   );
 }

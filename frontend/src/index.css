@@ -116,3 +116,29 @@ b,
 .condensed{
    font-family: "New Spirit Light Condensed";
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+section,
+[id] {
+  /* scroll-margin-top: 90px; */
+  scroll-margin-top: 0px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

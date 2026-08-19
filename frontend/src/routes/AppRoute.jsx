@@ -38,24 +38,19 @@ import Footer from "../components/Footer";
 import Terms from "../pages/Terms";
 import ResidenceConfiguration from "../components/ResidenceConfiguration";
 import Expectations from "../components/Expectations";
-
 function AppRoute() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/home" element={<Home />} />
-
         <Route path="/about" element={<About />} />
-
         <Route path="/footer" element={<Footer />} />
-
         <Route path="/terms" element={<Terms />} />
-
+     
         <Route
           path="/residence-configuration"
           element={<ResidenceConfiguration />}
         />
-
         <Route
           path="/expectations"
           element={<Expectations />}
@@ -64,5 +59,4 @@ function AppRoute() {
     </BrowserRouter>
   );
 }
-
 export default AppRoute;
