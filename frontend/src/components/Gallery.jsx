@@ -151,14 +151,14 @@ function Gallery() {
             "
           >
             <span className="condensed">
-              VISAVA is our idea of rest, reimagined.
+              VISAVA is our idea of rest reimagined
               <br />
             </span>
             <span className="condensed">
-              An oasis des
-              igned to welcome you back,
+             An oasis designed
+             to welcome you back
               <br className="hidden sm:block" />
-              not just home, but into calm.
+              not just home but into calm
             </span>
             
           </h2>

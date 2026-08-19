@@ -3,10 +3,11 @@ import logo from "../assets/images/VP-VV-Logo-LockUp.png";
 const navItems = [
   { label: "Home", target: "home" },
   { label: "About", target: "about" },
+   { label: "Project", target: "project" },
   { label: "Gallery", target: "gallery" },
   { label: "Amenities", target: "amenities" },
-  { label: "Project", target: "project" },
   { label: "Contact", target: "contact" },
+    { label: "location", target: "location" },
 ];
 
 function Header() {
@@ -117,13 +118,13 @@ function Header() {
               </button>
             ))}
 
-            <button
+            {/* <button
               type="button"
               onClick={() => scrollToSection("contact")}
               className="mt-5 w-full rounded-full bg-[#0a645a] px-6 py-3.5 text-base font-semibold text-white transition duration-200 hover:bg-[#084f47] active:bg-[#063d37]"
             >
               Enquire Now
-            </button>
+            </button> */}
           </div>
         </nav>
       </div>

@@ -406,7 +406,7 @@ export default function RealEstateAbout() {
           </div>
 
           <div>
-            <svg
+            {/* <svg
               className="lm-plat"
               viewBox="0 0 380 320"
               role="img"
@@ -428,7 +428,7 @@ export default function RealEstateAbout() {
                 <polygon points="0,-10 -4,0 4,0" fill="#8B3A26" />
                 <text x="7" y="0" className="lm-plat-dim" fill="#8B3A26">N</text>
               </g>
-            </svg>
+            </svg> */}
           </div>
         </section>
 

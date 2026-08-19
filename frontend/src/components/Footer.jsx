@@ -1965,11 +1965,9 @@ function Footer() {
 
                 <div
                   className="
-                    mt-4
                     flex
                     items-center
                     justify-center
-                    gap-4
                     md:justify-start
                   "
                 >
@@ -2249,9 +2247,10 @@ function Footer() {
               gap-y-2
               text-xs
               leading-5
-              text-[#006b60]
+              // text-[#006b60]
               sm:text-sm
               md:text-base
+              mb-[70px]
             "
           >
             <a

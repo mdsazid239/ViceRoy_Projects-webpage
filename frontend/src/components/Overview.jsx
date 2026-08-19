@@ -11,42 +11,42 @@ const amenities = [
     image: contrac,
     title: "Premium Residences",
     description:
-      "Only 83 exclusive residences\ncreating a private, like-minded community.",
+      "Only 83 exclusive residences creating a private, like-minded community.",
   },
   {
     id: 2,
     image: convex,
     title: "Grand Entrance",
     description:
-      "First habitable floor at ≈110 ft\noffering elevated privacy and quieter living.",
+      "First habitable floor at ≈110 ft offering elevated privacy and quieter living.",
   },
   {
     id: 3,
     image: boiler,
     title: "Landscape & Gardens",
     description:
-      "8 ft. deep private decks\nthat extend your home into the outdoors across all residences.",
+      "8 ft. deep private decks that extend your home into the outdoors across all residences.",
   },
   {
     id: 4,
     image: smicond,
     title: "Lifestyle Amenities",
     description:
-      "Generous ceiling heights of ≈10.3 ft.\nenhancing light, space, and openness.",
+      "Generous ceiling heights of ≈10.3 ft enhancing light, space, and openness.",
   },
   {
     id: 5,
     image: loyla,
     title: "Contemporary Interiors",
     description:
-      "French windows across all residences\ndesigned to maximise views and natural light.",
+      "French windows across all residences designed to maximise views and natural light.",
   },
   {
     id: 6,
     image: margft,
     title: "Exclusive Living",
     description:
-      "Generous carpet areas\noffering more usable living space.",
+      "Generous carpet areas offering more usable living space.",
   },
 ];
 
